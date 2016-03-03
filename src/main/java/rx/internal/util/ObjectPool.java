@@ -20,6 +20,7 @@ package rx.internal.util;
 import java.util.Queue;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReference;
+import org.jctools.queues.MpmcArrayQueue;
 
 import rx.Scheduler.Worker;
 import rx.functions.Action0;
@@ -42,9 +43,9 @@ public abstract class ObjectPool<T> implements SchedulerLifecycle {
     /**
      * Creates the pool.
      *
-     * @param minIdle
+     * @param min
      *            minimum number of objects residing in the pool
-     * @param maxIdle
+     * @param max
      *            maximum number of objects residing in the pool
      * @param validationInterval
      *            time in seconds for periodical checking of minIdle / maxIdle conditions in a separate thread.

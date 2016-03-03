@@ -18,6 +18,7 @@ package rx.internal.operators;
 
 import java.util.Queue;
 import java.util.concurrent.atomic.*;
+import org.jctools.queues.SpscArrayQueue;
 
 import rx.*;
 import rx.exceptions.MissingBackpressureException;

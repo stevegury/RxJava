@@ -16,13 +16,13 @@
 package rx.internal.util;
 
 import java.util.Queue;
+import org.jctools.queues.SpmcArrayQueue;
+import org.jctools.queues.SpscArrayQueue;
 
 import rx.Observer;
 import rx.Subscription;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
-import rx.internal.util.unsafe.SpmcArrayQueue;
-import rx.internal.util.unsafe.SpscArrayQueue;
 import rx.internal.util.unsafe.UnsafeAccess;
 
 /**

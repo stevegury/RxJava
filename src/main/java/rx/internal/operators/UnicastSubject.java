@@ -17,6 +17,8 @@ package rx.internal.operators;
 
 import java.util.Queue;
 import java.util.concurrent.atomic.*;
+import org.jctools.queues.SpscLinkedQueue;
+import org.jctools.queues.SpscUnboundedArrayQueue;
 
 import rx.*;
 import rx.exceptions.*;

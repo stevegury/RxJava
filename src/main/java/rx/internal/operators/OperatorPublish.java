@@ -17,6 +17,7 @@ package rx.internal.operators;
 
 import java.util.Queue;
 import java.util.concurrent.atomic.*;
+import org.jctools.queues.SpscArrayQueue;
 
 import rx.*;
 import rx.exceptions.*;
@@ -245,7 +246,7 @@ public final class OperatorPublish<T> extends ConnectableObservable<T> {
         
         public PublishSubscriber(AtomicReference<PublishSubscriber<T>> current) {
             this.queue = UnsafeAccess.isUnsafeAvailable() 
-                    ? new SpscArrayQueue<Object>(RxRingBuffer.SIZE) 
+                    ? new SpscArrayQueue<Object>(RxRingBuffer.SIZE)
                     : new SynchronizedQueue<Object>(RxRingBuffer.SIZE);
             
             this.nl = NotificationLite.instance();
@@ -266,7 +267,7 @@ public final class OperatorPublish<T> extends ConnectableObservable<T> {
                 }
             }));
         }
-        
+
         @Override
         public void onStart() {
             // since subscribers may have different amount of requests, we try to 

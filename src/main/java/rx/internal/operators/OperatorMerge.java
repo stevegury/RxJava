@@ -18,6 +18,7 @@ package rx.internal.operators;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicLong;
+import org.jctools.queues.SpscArrayQueue;
 
 import rx.*;
 import rx.Observable;

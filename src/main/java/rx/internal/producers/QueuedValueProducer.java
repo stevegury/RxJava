@@ -17,6 +17,7 @@ package rx.internal.producers;
 
 import java.util.Queue;
 import java.util.concurrent.atomic.*;
+import org.jctools.queues.SpscLinkedQueue;
 
 import rx.*;
 import rx.exceptions.*;

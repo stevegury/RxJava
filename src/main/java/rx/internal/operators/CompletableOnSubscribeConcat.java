@@ -17,11 +17,11 @@
 package rx.internal.operators;
 
 import java.util.concurrent.atomic.*;
+import org.jctools.queues.SpscArrayQueue;
 
 import rx.*;
 import rx.Completable.*;
 import rx.exceptions.MissingBackpressureException;
-import rx.internal.util.unsafe.SpscArrayQueue;
 import rx.plugins.RxJavaPlugins;
 import rx.subscriptions.SerialSubscription;
 

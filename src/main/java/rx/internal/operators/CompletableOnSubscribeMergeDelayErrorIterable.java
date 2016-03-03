@@ -18,10 +18,10 @@ package rx.internal.operators;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.jctools.queues.MpscLinkedQueue8;
 
 import rx.*;
 import rx.Completable.*;
-import rx.internal.util.unsafe.MpscLinkedQueue;
 import rx.subscriptions.CompositeSubscription;
 
 public final class CompletableOnSubscribeMergeDelayErrorIterable implements CompletableOnSubscribe {
@@ -36,7 +36,7 @@ public final class CompletableOnSubscribeMergeDelayErrorIterable implements Comp
         final CompositeSubscription set = new CompositeSubscription();
         final AtomicInteger wip = new AtomicInteger(1);
         
-        final Queue<Throwable> queue = new MpscLinkedQueue<Throwable>();
+        final Queue<Throwable> queue = new MpscLinkedQueue8<Throwable>();
         
         s.onSubscribe(set);
         
