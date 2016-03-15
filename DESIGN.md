@@ -251,6 +251,11 @@ class Completable {
 
 > onSubscribe (onError | onComplete)?
 
+##### Custom Observable, Single, Completable, or Flowable
+
+An implementation of an Observable which can be subscribed to with an `Observer`. Custom (`Observable`|`Single`|`Completable`|`Flowable`) classes would implement the interface `Consumable<S>` where the generic type `S` is a `Flowable.Subscriber<T>`, `Observable.Observer<T>`, `Completable.Subscriber<T>`, or a `Single.Subscriber<T>` depending on which semantics the custom class will follow. This choice would also affect the kinds of observables the custom class could interop with. For instance, `Flowable#merge` could operate over the standard `Flowable` or any custom class which implements `Consumable<Flowable.Subscriber<T>>`. 
+
+For more information see the proof of concept project [Consumable](https://github.com/stealthcode/Consumable). 
 
 ##### Observer
 
